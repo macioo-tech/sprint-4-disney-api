@@ -1,11 +1,17 @@
-import Stack from '@mui/material/Stack';
-import Pagination from '@mui/material/Pagination';
+import Stack from "@mui/material/Stack";
+import Pagination from "@mui/material/Pagination";
 
-const ThemePagination = () => {
+const ThemePagination = ({ info, page, setPage }) => {
+    const { totalPages } = info;
+
+  const handleChange = (e, p) => {
+    setPage(p);
+  };
+
   return (
     <>
       <Stack spacing={2}>
-        <Pagination count={10} size="large" />
+        <Pagination page={page} count={totalPages} onChange={handleChange} size="large" />
       </Stack>
     </>
   );
