@@ -9,9 +9,6 @@ import Button from "@mui/material/Button";
 const ListElement = ({ item }) => {
   const { name, imageUrl } = item || {};
 
-  console.log("name:", name);
-  console.log("imageUrl", imageUrl);
-
   return (
     <Box sx={{ width: 200, height: 400 }}>
       <Card variant="outlined">
