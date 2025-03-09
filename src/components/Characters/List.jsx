@@ -27,9 +27,7 @@ const List = () => {
 
   const { data: characters, info } = data;
 
-  console.log("characters:", characters);
   console.log("info:", info);
-
   return (
     <Box>
       <Grid
