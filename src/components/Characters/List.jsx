@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch";
+import ListElement from "./ListElement";
 
 const BASE_URL = "https://api.disneyapi.dev";
 
@@ -20,9 +21,9 @@ const List = () => {
 
   return (
     <>
-    <p>Lista:</p>
+      <p>Lista:</p>
       {characters?.map((item) => {
-        <div key={item._id}>{item.name}</div>;
+        <ListElement key={item._id} item={item} />;
       })}
     </>
   );
