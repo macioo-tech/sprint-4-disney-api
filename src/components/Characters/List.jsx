@@ -1,10 +1,11 @@
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import ListElement from "./ListElement";
+import ThemeSwitch from "./ThemeSwitch";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import CircularProgress from "@mui/material/CircularProgress";
-import ThemePagination from "../Pagination/ThemePagination";
+import Pagination from "@mui/material/Pagination";
 
 import Switch from "@mui/material/Switch";
 
@@ -18,7 +19,12 @@ const List = () => {
 
   if (loading) {
     return (
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
         <CircularProgress />
       </Box>
     );
@@ -30,10 +36,27 @@ const List = () => {
 
   const { data: characters, info } = data;
 
+  const handleChange = (e, p) => {
+    setPage(p);
+  };
+
   console.log("info:", info);
   return (
     <>
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <ThemeSwitch />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Grid
           container
           sx={{
@@ -53,8 +76,17 @@ const List = () => {
           ))}
         </Grid>
       </Box>
-      <Box>
-        <ThemePagination info={info} page={page} setPage={setPage} />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Pagination
+          page={page}
+          count={info.totalPages}
+          onChange={handleChange}
+        />
       </Box>
     </>
   );
