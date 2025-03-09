@@ -40,7 +40,6 @@ const List = () => {
     setPage(p);
   };
 
-  console.log("info:", info);
   return (
     <>
       <Box
@@ -83,6 +82,7 @@ const List = () => {
         }}
       >
         <Pagination
+          size="large"
           page={page}
           count={info.totalPages}
           onChange={handleChange}
