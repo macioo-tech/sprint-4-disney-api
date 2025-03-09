@@ -16,16 +16,19 @@ const List = () => {
 
   const { data: characters, info } = data;
 
+  if (characters.length <= 0) {
+    return <p>...characters not ready</p>;
+  }
+
   console.log("characters:", characters);
   console.log("info:", info);
 
   return (
-    <>
-      <p>Lista:</p>
-      {characters?.map((item) => {
-        <ListElement key={item._id} item={item} />;
-      })}
-    </>
+    <div>
+      {characters.map((item) => (
+        <ListElement key={item._id} item={item} />
+      ))}
+    </div>
   );
 };
 
