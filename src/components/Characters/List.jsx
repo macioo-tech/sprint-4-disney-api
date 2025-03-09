@@ -1,5 +1,7 @@
 import useFetch from "../../hooks/useFetch";
 import ListElement from "./ListElement";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid2";
 
 const BASE_URL = "https://api.disneyapi.dev";
 
@@ -24,11 +26,25 @@ const List = () => {
   console.log("info:", info);
 
   return (
-    <div>
-      {characters.map((item) => (
-        <ListElement key={item._id} item={item} />
-      ))}
-    </div>
+    <Box>
+      <Grid container
+        sx={{
+          '--Grid-borderWidth': '1px',
+          borderTop: 'var(--Grid-borderWidth) solid',
+          borderLeft: 'var(--Grid-borderWidth) solid',
+          borderColor: 'divider',
+          '& > div': {
+            borderRight: 'var(--Grid-borderWidth) solid',
+            borderBottom: 'var(--Grid-borderWidth) solid',
+            borderColor: 'divider',
+          },
+        }}
+      >
+        {characters.map((item) => (
+          <ListElement key={item._id} item={item} />
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

@@ -1,48 +1,31 @@
-import styled from "styled-components";
-
-const Container = styled.div`
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #fff;
-    border: 2px solid #ed03ed;
-    align-items: center;
-
-`
-
-const Name = styled.h2`
- font-size: 16px;
- font-weight: bold;
- color: #000;
-    
-`
-
-const ImageContainer = styled.div`
-  max-width: 400px;
-  overflow: auto;
-  resize: horizontal;
-`;
-
-const Image = styled.img`
-  max-width: 100%;
-  display: block;
-`;
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 const ListElement = ({ item }) => {
   const { name, imageUrl } = item || {};
 
-  console.log('name:', name)
-  console.log('imageUrl', imageUrl)
+  console.log("name:", name);
+  console.log("imageUrl", imageUrl);
 
   return (
-    <Container>
-      <Name>{name}</Name>
-      <ImageContainer>
-        <Image src={imageUrl} />
-      </ImageContainer>
-      <button>Learn</button>
-    </Container>
+    <Box sx={{ width: 200, height: 400 }}>
+      <Card variant="outlined">
+        <CardContent>
+          <Typography textAlign="center" variant="h6" component="div">
+            {name}
+          </Typography>
+          <CardMedia component="img" height="200" image={imageUrl} alt={name} />
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 
