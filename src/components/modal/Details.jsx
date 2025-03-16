@@ -14,9 +14,7 @@ const Details = ({ item, onClose }) => {
   return (
     <Paper elevation={0} sx={{ height: "100%" }} square>
       <Box
-        onClick={() => {
-          onClose();
-        }}
+        onClick={onClose}
         sx={{
           position: "fixed",
           top: 0,
@@ -30,6 +28,7 @@ const Details = ({ item, onClose }) => {
         }}
       >
         <Card
+          onClick={(e) => e.stopPropagation()}
           sx={{
             padding: "20px",
             borderRadius: "8px",
