@@ -14,6 +14,9 @@ const Details = ({ item, onClose }) => {
   return (
     <Paper elevation={0} sx={{ height: "100%" }} square>
       <Box
+        onClick={() => {
+          onClose();
+        }}
         sx={{
           position: "fixed",
           top: 0,
@@ -57,7 +60,13 @@ const Details = ({ item, onClose }) => {
             <Info name="Video Games" options={videoGames} />
             <Info name="TV Shows" options={tvShows} />
 
-            <CardActions sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CardActions
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Button onClick={onClose} size="small">
                 Close
               </Button>
