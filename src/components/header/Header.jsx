@@ -6,8 +6,6 @@ import Grid from "@mui/material/Grid2";
 const Header = () => {
   const { mode, setMode } = useContext(ModeContext);
 
-  console.log(mode);
-
   return (
     <>
       <Grid

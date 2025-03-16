@@ -25,7 +25,6 @@ const useFetch = (url) => {
     };
 
     fetchData();
-    console.log('effect useFetch')
 
     return () => {
       setLoading(false);

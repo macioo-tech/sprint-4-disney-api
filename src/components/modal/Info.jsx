@@ -1,8 +1,6 @@
 import { Paper, List, ListItem, ListItemText, Divider } from "@mui/material";
 
 const Info = ({ name, options }) => {
-  console.log(options);
-
   return (
     <>
       <List>
