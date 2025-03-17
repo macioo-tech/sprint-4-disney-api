@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid2";
 import CircularProgress from "@mui/material/CircularProgress";
 import Pagination from "@mui/material/Pagination";
 import ListElement from "./ListElement";
+import { Paper } from "@mui/material";
 
 const BASE_URL = "https://api.disneyapi.dev";
 
@@ -16,18 +17,24 @@ const List = () => {
 
   if (loading) {
     return (
-      <Box sx={{ 
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        padding: "20px", 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "center" }}>
-        <CircularProgress />
-      </Box>
+      <Paper
+        elevation={0}
+        square
+        sx={{
+          height: "100%",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          padding: "20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress size={100}/>
+      </Paper>
     );
   }
 
@@ -43,7 +50,7 @@ const List = () => {
 
   return (
     <>
-      <Grid container spacing={{ xs: 2, md: 3 }} sx={{margin: "20px"}}>
+      <Grid container spacing={{ xs: 2, md: 3 }} sx={{ margin: "20px" }}>
         {characters.map((item) => (
           <Grid item key={item._id} size={{ xs: 12, sm: 6, md: 2 }}>
             <ListElement item={item} />
@@ -51,7 +58,14 @@ const List = () => {
         ))}
       </Grid>
 
-      <Box sx={{ padding: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <Box
+        sx={{
+          padding: "20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Pagination
           size="large"
           page={page}
