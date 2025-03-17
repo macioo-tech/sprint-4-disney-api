@@ -16,9 +16,18 @@ const List = () => {
 
   if (loading) {
     return (
-      <>
+      <Box sx={{ 
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        padding: "20px", 
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center" }}>
         <CircularProgress />
-      </>
+      </Box>
     );
   }
 
